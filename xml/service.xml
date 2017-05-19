@@ -1,0 +1,6 @@
+<serviceList>
+    <service>
+        <name>test</name>
+        <process>test1</process>
+    </service>
+</serviceList>
