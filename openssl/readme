@@ -1,0 +1,17 @@
+## generate key pair
+
+openssl genrsa -out private.pem 1024
+openssl rsa -in private.pem -pubout -out public.pem -outform PEM
+
+## generate x509
+openssl req -new -x509 -key private.pem -out publickey.cer -days 1825
+
+## sign
+openssl dgst -sha256 -sign private.pem -out sign.sha256 sign.bin
+
+
+## verify
+openssl dgst -sha256 -verify public.pem -signature sign.sha256 sign.bin
+
+## command
+./verify sign.sha256 xxx xxx.len publickey.cer
